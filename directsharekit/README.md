@@ -283,50 +283,7 @@ For Android 11+, the library uses the `<queries>` block to detect installed apps
 
 Note: if your app shares files only through the system picker (`OpenDocument`/`OpenMultipleDocuments`), storage permissions may not be required.
 
-## Best Practices
-
-1. **Always check if app is installed** before attempting to share
-2. **Use appropriate MIME types** for better app matching
-3. **Provide optional metadata** (message) for better UX
-4. **Handle file access errors gracefully** - FileProvider may throw exceptions
-5. **Test with real devices** - App detection behavior varies
-
-## Publish-Ready
-
-- Release checklist: `directsharekit/PUBLISH_READY_CHECKLIST.md`
-- Version/changelog template: `directsharekit/CHANGELOG.md`
-- Recommended process:
-  1. Update `CHANGELOG.md` (`Unreleased` -> version section)
-  2. Tag release (`vX.Y.Z`)
-  3. Publish artifact (JitPack/Maven/internal registry)
-  4. Update integration snippet in this README if coordinates change
-
-### Quick Deploy via JitPack
-
-1. Update publishing properties in `gradle.properties`:
-   - `POM_GROUP_ID`
-   - `POM_VERSION`
-   - `POM_URL`
-   - `POM_DEVELOPER_*`
-   - `POM_SCM_*`
-2. Build and test locally:
-
-```bash
-./gradlew :directsharekit:assembleRelease --no-daemon
-./gradlew :directsharekit:publishToMavenLocal --no-daemon
-```
-
-3. Push source and tag:
-
-```bash
-git add .
-git commit -m "release: directsharekit v1.0.0"
-git tag v1.0.0
-git push origin main
-git push origin v1.0.0
-```
-
-4. Consume from another app:
+Consume from another app:
 
 ```kotlin
 // settings.gradle.kts
